@@ -15,7 +15,7 @@
 > _Bejelentkezési felület, ahol egy űrlap fogadja a felhasználót._
 
 **Elfogadási kritérium:**  
-A felhasználó képes legyen a megfelelő felhasználónév és jelszó páros megadásával belépni az alkalmazásba.
+A felhasználó képes a megfelelő felhasználónév és jelszó páros megadásával belépni az alkalmazásba.
 
 ---
 
@@ -28,7 +28,7 @@ A felhasználó képes legyen a megfelelő felhasználónév és jelszó páros 
 > _A már hitelesített felhasználó kártyás megjelenítésben láthatja a leggyakoribb funkcióit az alkalmazásnak._
 
 **Elfogadási kritérium:**  
-A kártyák vezessenek a megfelelő aloldalakra.
+A kártyák a megfelelő aloldalakra vezetnek.
 
 # _**Termék aloldalak**_
 
@@ -46,9 +46,9 @@ A kártyák vezessenek a megfelelő aloldalakra.
 
 **Elfogadási kritérium:**
 
-- Az adott sorban található termék adatai mellett legyen egy a szerkesztés aloldalra navigáló gomb.
+- Az adott sorban található termék adatai mellett található egy a szerkesztés aloldalra navigáló gomb.
 - Lenyíló menü, amelyen kiválasztható, hogy mely kategóriába tartózó termékek jelenjenek meg a listában.
-- 30 sor/oldal fölött legyen lapszámozás
+- 30 sor/oldal fölött van lapszámozás
 
 ## **_Új termék hozzáadása aloldal_**
 
@@ -93,8 +93,8 @@ A kártyák vezessenek a megfelelő aloldalakra.
 
 **Elfogadási kritérium:**
 
-- Az adott sorban található rendelés adatai mellett legyen egy a szerkesztés aloldalra navigáló gomb.
-- 30 sor/oldal fölött, legyen lapszámozás
+- Az adott sorban található rendelés adatai mellett található egy a szerkesztés aloldalra navigáló gomb.
+- 30 sor/oldal fölött van lapszámozás
 
 ## **_Új rendelés hozzáadása aloldal_**
 
@@ -139,8 +139,8 @@ A kártyák vezessenek a megfelelő aloldalakra.
 
 **Elfogadási kritérium:**
 
-- Az adott sorban található számla adatai mellett legyen egy a szerkesztés aloldalra navigáló gomb.
-- 30 sor/oldal fölött, legyen lapszámozás
+- Az adott sorban található számla adatai mellett található egy a szerkesztés aloldalra navigáló gomb.
+- 30 sor/oldal fölött van lapszámozás
 
 ## **_Új számla hozzáadása aloldal_**
 
@@ -185,8 +185,8 @@ A kártyák vezessenek a megfelelő aloldalakra.
 
 **Elfogadási kritérium:**
 
-- Az adott sorban található kategória adatai mellett legyen egy a szerkesztés aloldalra navigáló gomb.
-- 30 sor/oldal fölött, legyen lapszámozás
+- Az adott sorban található kategória adatai mellett található egy a szerkesztés aloldalra navigáló gomb.
+- 30 sor/oldal fölött van lapszámozás
 
 ## **_Új kategória hozzáadása aloldal_**
 
@@ -231,8 +231,8 @@ A kártyák vezessenek a megfelelő aloldalakra.
 
 **Elfogadási kritérium:**
 
-- Az adott sorban található vásárló adatai mellett legyen egy a szerkesztés aloldalra navigáló gomb.
-- 30 sor/oldal fölött, legyen lapszámozás
+- Az adott sorban található vásárló adatai mellett található egy a szerkesztés aloldalra navigáló gomb.
+- 30 sor/oldal fölött van lapszámozás
 
 ## **_Új vásárló hozzáadása aloldal_**
 
