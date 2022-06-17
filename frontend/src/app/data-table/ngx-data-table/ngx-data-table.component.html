@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns" scope="col">
+          {{ col.title }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of list | slice: startSlice:endSlice">
+        <td *ngFor="let col of columns">
+          {{ row[col.key] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-flex justify-content-between">
+  <nav aria-label="Table pagination navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="page === 1">
+        <button (click)="jumpToPage(page - 1)" class="page-link">
+          Previous
+        </button>
+      </li>
+      <li
+        *ngFor="let pageNum of pageList"
+        class="page-item"
+        [class.active]="page === pageNum"
+      >
+        <button (click)="jumpToPage(pageNum)" class="page-link">
+          {{ pageNum }}
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="page === numOfPages">
+        <button (click)="jumpToPage(page + 1)" class="page-link">Next</button>
+      </li>
+    </ul>
+  </nav>
+
+  <select class="select" (change)="setPageSize($event)">
+    <option
+      *ngFor="let size of pageSizes"
+      [value]="size"
+      [selected]="size === pageSize"
+    >
+      {{ size }}
+    </option>
+  </select>
+</div>
