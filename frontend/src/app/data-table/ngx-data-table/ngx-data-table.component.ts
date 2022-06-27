@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 export interface INgxTableColumn {
   title: string;
@@ -17,15 +18,17 @@ export class NgxDataTableComponent<T extends { [x: string]: any }>
 
   @Input() columns: INgxTableColumn[] = [];
 
-  pageSizes: number[] = [10, 20, 30, 40];
+  @Output() onDelete: EventEmitter<T> = new EventEmitter();
 
-  pageSize: number = 10;
+  pageSizes: number[] = [5, 10, 20, 30, 40];
+
+  pageSize: number = 5;
 
   numOfPages = 0;
 
   startSlice: number = 0;
 
-  endSlice: number = 10;
+  endSlice: number = 5;
 
   page: number = 1;
 
@@ -38,6 +41,10 @@ export class NgxDataTableComponent<T extends { [x: string]: any }>
 
   ngOnInit(): void {
     this.numOfPages = Math.ceil(this.list.length / this.pageSize);
+  }
+
+  handleDelete(entity: T) {
+    this.onDelete.emit(entity);
   }
 
   jumpToPage(pageNum: number): void {

@@ -1,0 +1,10 @@
+<app-header title="Orders" color="bg-secondary">
+  <a class="btn btn-primary" routerLink="/products/add">Add Order</a>
+</app-header>
+
+<ngx-data-table
+  *ngIf="list$ | async as list"
+  [columns]="columns"
+  [list]="list"
+  (onDelete)="delete($event)"
+></ngx-data-table>

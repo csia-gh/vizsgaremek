@@ -1,0 +1,161 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/products" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Products
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">Add Product</div>
+      <div class="card-body">
+        <form
+          #productForm="ngForm"
+          (ngSubmit)="
+            onSubmit({ value: productForm.value, valid: productForm.valid })
+          "
+        >
+          <div class="mb-3">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              #productName="ngModel"
+              [ngClass]="{
+                'is-invalid': productName.errors && productName.touched
+              }"
+              [(ngModel)]="product.name"
+              minlength="2"
+              required
+            />
+
+            <div
+              [hidden]="!productName.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Product name required
+            </div>
+            <div
+              [hidden]="!productName.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 2 characters
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              name="description"
+              #productDescription="ngModel"
+              [ngClass]="{
+                'is-invalid':
+                  productDescription.errors && productDescription.touched
+              }"
+              [(ngModel)]="product.description"
+              minlength="2"
+              required
+            ></textarea>
+
+            <div
+              [hidden]="!productDescription.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Product description required
+            </div>
+            <div
+              [hidden]="!productDescription.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 2 characters
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              name="price"
+              #productPrice="ngModel"
+              [ngClass]="{
+                'is-invalid': productPrice.errors && productPrice.touched
+              }"
+              [(ngModel)]="product.price"
+              min="0"
+              required
+            />
+
+            <div
+              [hidden]="!productPrice.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Price is required
+            </div>
+            <div
+              [hidden]="!productPrice.errors?.['pattern']"
+              class="invalid-feedback"
+            >
+              Price is not valid
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="manufacturer">Manufacturer</label>
+            <input
+              type="text"
+              class="form-control"
+              name="manufacturer"
+              #productManufacturer="ngModel"
+              [ngClass]="{
+                'is-invalid':
+                  productManufacturer.errors && productManufacturer.touched
+              }"
+              [(ngModel)]="product.manufacturer"
+              minlength="2"
+              required
+            />
+
+            <div
+              [hidden]="!productManufacturer.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Manufacturer is required
+            </div>
+            <div
+              [hidden]="!productManufacturer.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 2 characters
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="active">Active</label>
+            <select
+              class="form-control"
+              name="active"
+              [(ngModel)]="product.active"
+            >
+              <option *ngFor="let op of ['true', 'false']" [value]="op">
+                >
+                {{ op }}
+              </option>
+            </select>
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-primary" [disabled]="productForm.invalid">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

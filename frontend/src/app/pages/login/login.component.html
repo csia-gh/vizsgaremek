@@ -1,0 +1,45 @@
+<div class="row my-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center pb-4 pt-3">
+          <span class="text-secondary"
+            ><i class="fa fa-lock"></i> Music Store Dashboard</span
+          >
+          Login
+        </h1>
+
+        <!-- Login form -->
+        <form (ngSubmit)="onSubmit()">
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password">Password</label>
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-secondary btn-block">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
