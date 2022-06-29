@@ -1,0 +1,200 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/customers" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Customers
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-info">Add Customer</div>
+      <div class="card-body">
+        <form
+          #form="ngForm"
+          (ngSubmit)="onSubmit({ value: form.value, valid: form.valid })"
+        >
+          <div class="mb-3">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              #customerFN="ngModel"
+              [ngClass]="{
+                'is-invalid': customerFN.errors && customerFN.touched
+              }"
+              [(ngModel)]="customer.firstName"
+              minlength="3"
+              required
+            />
+
+            <div
+              [hidden]="!customerFN.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Fist name required
+            </div>
+            <div
+              [hidden]="!customerFN.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 3 characters
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              #customerLN="ngModel"
+              [ngClass]="{
+                'is-invalid': customerLN.errors && customerLN.touched
+              }"
+              [(ngModel)]="customer.lastName"
+              minlength="3"
+              required
+            />
+
+            <div
+              [hidden]="!customerLN.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Last name required
+            </div>
+            <div
+              [hidden]="!customerLN.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 3 characters
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              #customerEmail="ngModel"
+              [ngClass]="{
+                'is-invalid': customerEmail.errors && customerEmail.touched
+              }"
+              [(ngModel)]="customer.email"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+            />
+
+            <div
+              [hidden]="!customerEmail.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Email required
+            </div>
+            <div
+              [hidden]="!customerEmail.errors?.['pattern']"
+              class="invalid-feedback"
+            >
+              Email must be valid
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="zip">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              name="zip"
+              #zip="ngModel"
+              [ngClass]="{
+                'is-invalid': zip.errors && zip.touched
+              }"
+              [(ngModel)]="address.zip"
+              required
+            />
+
+            <div
+              [hidden]="!customerEmail.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Zip required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="country">Country</label>
+            <input
+              type="text"
+              class="form-control"
+              name="country"
+              #country="ngModel"
+              [ngClass]="{
+                'is-invalid': country.errors && country.touched
+              }"
+              [(ngModel)]="address.country"
+              required
+            />
+
+            <div
+              [hidden]="!country.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Country required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="city">City</label>
+            <input
+              type="text"
+              class="form-control"
+              name="city"
+              #city="ngModel"
+              [ngClass]="{
+                'is-invalid': city.errors && city.touched
+              }"
+              [(ngModel)]="address.city"
+              required
+            />
+
+            <div [hidden]="!city.errors?.['required']" class="invalid-feedback">
+              City required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="street">Street</label>
+            <input
+              type="text"
+              class="form-control"
+              name="street"
+              #street="ngModel"
+              [ngClass]="{
+                'is-invalid': street.errors && street.touched
+              }"
+              [(ngModel)]="address.street"
+              required
+            />
+
+            <div
+              [hidden]="!street.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Street required
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-primary" [disabled]="customerEmail.invalid">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

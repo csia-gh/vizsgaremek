@@ -35,6 +35,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Product; valid: boolean | null }) {
+    console.log(value);
+
     if (!valid) {
       this.flashMessage.show('Please fill out the form correctly', {
         cssClass: 'alert-danger',
@@ -42,10 +44,9 @@ export class ProductEditComponent implements OnInit {
       });
     } else {
       value._id = this.id;
+
       this.productService.update(value).subscribe({
         next: (product) => {
-          console.log(product);
-
           this.flashMessage.show('Product updated', {
             cssClass: 'alert-success',
             timeout: 2000,

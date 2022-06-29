@@ -31,7 +31,11 @@ const authenticateJwt = require('./model/auth/authenticate');
 //   res.send('api server');
 // });
 app.use('/product', authenticateJwt, require('./controller/product/router'));
-app.use('/category', require('./controller/category/router'));
+app.use('/category', authenticateJwt, require('./controller/category/router'));
+app.use('/order', authenticateJwt, require('./controller/order/router'));
+app.use('/bill', authenticateJwt, require('./controller/bill/router'));
+app.use('/customer', authenticateJwt, require('./controller/customer/router'));
+app.use('/address', authenticateJwt, require('./controller/address/router'));
 app.use('/login', require('./controller/login/router'));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

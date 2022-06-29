@@ -18,6 +18,9 @@ export class NgxDataTableComponent<T extends { [x: string]: any }>
 
   @Input() columns: INgxTableColumn[] = [];
 
+  @Input() noEditAction = false;
+  @Input() noDeleteAction = false;
+
   @Output() onDelete: EventEmitter<T> = new EventEmitter();
 
   pageSizes: number[] = [5, 10, 20, 30, 40];

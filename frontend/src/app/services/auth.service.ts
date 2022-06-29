@@ -23,7 +23,7 @@ export interface ILoginData {
 export class AuthService {
   apiUrl: string = environment.apiUrl;
 
-  loginUrl: string = '';
+  loginUrl: string = `${this.apiUrl}login`;
 
   user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
@@ -38,15 +38,9 @@ export class AuthService {
     private router: Router,
     private flashMessage: FlashMessagesService
   ) {
-    this.loginUrl = `${this.apiUrl}login`;
-
     this.user$.subscribe({
       next: (user) => {
         if (user) {
-          this.flashMessage.show('You are now logged in', {
-            cssClass: 'alert-success',
-            timeout: 4000,
-          });
           this.router.navigate(['/']);
         } else {
           this.router.navigate(['/', 'login']);
@@ -56,11 +50,11 @@ export class AuthService {
       },
     });
 
-    const loginInfo = sessionStorage.getItem('login');
-    if (loginInfo) {
-      const loginObject = JSON.parse(loginInfo);
-      this.access_token$.next(loginObject.accessToken);
-      this.user$.next(loginObject.user);
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const userDataObj = JSON.parse(userData);
+      this.access_token$.next(userDataObj.accessToken);
+      this.user$.next(userDataObj.user);
     }
   }
 
@@ -69,7 +63,11 @@ export class AuthService {
       next: (response: IAuthModel) => {
         this.user$.next(response.user);
         this.access_token$.next(response.accessToken);
-        sessionStorage.setItem('login', JSON.stringify(response));
+        localStorage.setItem('user', JSON.stringify(response));
+        this.flashMessage.show('You are now logged in', {
+          cssClass: 'alert-success',
+          timeout: 2000,
+        });
       },
       error: (err) => console.error(err),
     });

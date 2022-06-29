@@ -1,3 +1,12 @@
+import { CustomerAddComponent } from './pages/customer-add/customer-add.component';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { CategoryAddComponent } from './pages/category-add/category-add.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { BillEditComponent } from './pages/bill-edit/bill-edit.component';
+import { BillAddComponent } from './pages/bill-add/bill-add.component';
+import { BillsComponent } from './pages/bills/bills.component';
+import { OrderEditComponent } from './pages/order-edit/order-edit.component';
+import { OrderAddComponent } from './pages/order-add/order-add.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -33,7 +42,52 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'orders/add',
+    component: OrderAddComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'orders/edit/:id',
+    component: OrderEditComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'bills',
+    component: BillsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'bills/add',
+    component: BillAddComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'bills/edit/:id',
+    component: BillEditComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'categories/add',
+    component: CategoryAddComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'customers',
+    component: CustomersComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'customers/add',
+    component: CustomerAddComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'login',

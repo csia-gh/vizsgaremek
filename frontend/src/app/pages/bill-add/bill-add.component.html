@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/bills" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Bills
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-danger">Add Bill</div>
+      <div class="card-body">
+        <form
+          #billForm="ngForm"
+          (ngSubmit)="
+            onSubmit({ value: billForm.value, valid: billForm.valid })
+          "
+        >
+          <div class="mb-3">
+            <label for="order">Order</label>
+            <select
+              class="form-control"
+              name="orderID"
+              [(ngModel)]="bill.orderID"
+            >
+              <option *ngFor="let order of orders$ | async" [value]="order._id">
+                >
+                {{ order._id }}
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="amount">Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              name="amount"
+              #amount="ngModel"
+              [ngClass]="{
+                'is-invalid': amount.errors && amount.touched
+              }"
+              [(ngModel)]="bill.amount"
+              min="0"
+              required
+            />
+
+            <div
+              [hidden]="!amount.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Amount is required
+            </div>
+            <div [hidden]="!amount.errors?.['min']" class="invalid-feedback">
+              Amount must be a pos. num.
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-primary" [disabled]="billForm.invalid">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

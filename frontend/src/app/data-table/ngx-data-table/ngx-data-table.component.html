@@ -5,7 +5,7 @@
         <th *ngFor="let col of columns" scope="col">
           {{ col.title }}
         </th>
-        <th></th>
+        <th *ngIf="!noEditAction || !noDeleteAction"></th>
       </tr>
     </thead>
     <tbody>
@@ -16,12 +16,17 @@
         <td>
           <div class="btn-group" role="group">
             <button
+              *ngIf="!noEditAction"
               [routerLink]="['/', 'products', 'edit', row['_id']]"
               class="btn btn-sm btn-info"
             >
               <feather-icon name="edit"></feather-icon>
             </button>
-            <button (click)="handleDelete(row)" class="btn btn-sm btn-danger">
+            <button
+              *ngIf="!noDeleteAction"
+              (click)="handleDelete(row)"
+              class="btn btn-sm btn-danger"
+            >
               <feather-icon name="trash-2"></feather-icon>
             </button>
           </div>

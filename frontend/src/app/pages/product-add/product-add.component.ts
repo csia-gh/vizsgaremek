@@ -11,7 +11,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ProductAddComponent implements OnInit {
   product: Product = new Product();
-  @ViewChild('clientForm') form: any;
+  @ViewChild('productForm') form: any;
 
   constructor(
     private flashMessage: FlashMessagesService,

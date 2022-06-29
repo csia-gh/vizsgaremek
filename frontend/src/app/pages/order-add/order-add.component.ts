@@ -1,3 +1,4 @@
+import { CustomerService } from './../../services/customer.service';
 import { Order } from './../../models/order';
 import { Router } from '@angular/router';
 import { OrderService } from './../../services/order.service';
@@ -12,11 +13,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class OrderAddComponent implements OnInit {
   order: Order = new Order();
   @ViewChild('orderForm') form: any;
+  customers$ = this.customerService.getAll();
 
   constructor(
     private flashMessage: FlashMessagesService,
-    private productService: OrderService,
-    private router: Router
+    private router: Router,
+    private customerService: CustomerService,
+    private orderService: OrderService
   ) {}
 
   ngOnInit(): void {}
@@ -26,19 +29,19 @@ export class OrderAddComponent implements OnInit {
       // Show error
       this.flashMessage.show('Please fill out the form correctly', {
         cssClass: 'alert-danger',
-        timeout: 4000,
+        timeout: 2000,
       });
     } else {
-      this.productService.create(value).subscribe({
+      this.orderService.create(value).subscribe({
         next: () => {
           // Show message
-          this.flashMessage.show('New product added', {
+          this.flashMessage.show('New order added', {
             cssClass: 'alert-success',
-            timeout: 4000,
+            timeout: 2000,
           });
 
           // Redirect to dash
-          this.router.navigate(['/products']);
+          this.router.navigate(['/orders']);
         },
         error: (err) => console.error(err),
       });

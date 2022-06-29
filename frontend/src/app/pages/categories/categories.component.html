@@ -1,0 +1,12 @@
+<app-header title="Categories" color="bg-dark">
+  <a class="btn btn-primary" routerLink="/categories/add">Add Category</a>
+</app-header>
+
+<ngx-data-table
+  *ngIf="list$ | async as list"
+  [columns]="columns"
+  [list]="list"
+  (onDelete)="delete($event)"
+  [noEditAction]="true"
+  [noDeleteAction]="true"
+></ngx-data-table>

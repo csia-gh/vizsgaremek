@@ -38,7 +38,7 @@ export class NavComponent implements OnInit {
   logout() {
     this.flashMessage.show('You are now logged out', {
       cssClass: 'alert-info text-center',
-      timeout: 10000,
+      timeout: 2000,
     });
     this.auth.logout();
   }

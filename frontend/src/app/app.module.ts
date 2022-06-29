@@ -22,6 +22,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderAddComponent } from './pages/order-add/order-add.component';
+import { OrderEditComponent } from './pages/order-edit/order-edit.component';
+import { BillsComponent } from './pages/bills/bills.component';
+import { BillAddComponent } from './pages/bill-add/bill-add.component';
+import { BillEditComponent } from './pages/bill-edit/bill-edit.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { CategoryAddComponent } from './pages/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { CustomerAddComponent } from './pages/customer-add/customer-add.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +46,15 @@ import { OrderAddComponent } from './pages/order-add/order-add.component';
     ProfileComponent,
     OrdersComponent,
     OrderAddComponent,
+    OrderEditComponent,
+    BillsComponent,
+    BillAddComponent,
+    BillEditComponent,
+    CategoriesComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
+    CustomersComponent,
+    CustomerAddComponent,
   ],
   imports: [
     BrowserModule,

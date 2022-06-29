@@ -1,5 +1,5 @@
 export class Address {
-  _id?: '' = '';
+  _id: '' = '';
   zip: string = '';
   country: string = '';
   city: string = '';

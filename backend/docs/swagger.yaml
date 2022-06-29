@@ -44,7 +44,6 @@ components:
         - name
         - description
         - price
-        - manufacturer
       properties:
         name:
           type: string
@@ -52,8 +51,6 @@ components:
           type: string
         price:
           type: number
-        manufacturer:
-          type: string
         category:
           type: object
           $ref: '#/components/schemas/Category'
@@ -61,3 +58,9 @@ components:
       type: object
       required:
         - name
+        - description
+      properties:
+        name:
+          type: string
+        description:
+          type: string

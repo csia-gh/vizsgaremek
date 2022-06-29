@@ -1,9 +1,9 @@
 const express = require('express');
-const controller = require('./controller');
+const Address = require('../../model/address');
+const controller = require('../base/controller')(Address);
 
 const router = express.Router();
 
-// get
 router.get('/', (req, res, next) => {
   return controller.findAll(req, res, next);
 });
@@ -12,8 +12,7 @@ router.get('/:id', (req, res, next) => {
   return controller.findOne(req, res, next);
 });
 
-// // patch
-router.patch('/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   return controller.update(req, res, next);
 });
 

@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/orders" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Orders
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-secondary">Edit Order</div>
+      <div class="card-body">
+        <form
+          #orderForm="ngForm"
+          (ngSubmit)="
+            onSubmit({ value: orderForm.value, valid: orderForm.valid })
+          "
+        >
+          <div class="mb-3">
+            <label for="customerID">Customer</label>
+            <select
+              class="form-control"
+              name="customerID"
+              [(ngModel)]="order.customerID"
+            >
+              <option
+                *ngFor="let customer of customers$ | async"
+                [value]="customer._id"
+              >
+                >
+                {{ customer.firstName }} {{ customer.lastName }}
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="status">Status</label>
+            <select
+              class="form-control"
+              name="status"
+              [(ngModel)]="order.status"
+            >
+              <option
+                *ngFor="let status of ['new', 'shipped', 'paid']"
+                [value]="status"
+              >
+                >
+                {{ status }}
+              </option>
+            </select>
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-primary" [disabled]="orderForm.invalid">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

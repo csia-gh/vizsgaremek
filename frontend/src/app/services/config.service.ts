@@ -50,6 +50,23 @@ export class ConfigService {
     { key: 'customerID', title: 'CustomerID' },
     { key: 'status', title: 'Status' },
   ];
+  billTableColumns: INgxTableColumn[] = [
+    { key: '_id', title: '#' },
+    { key: 'orderID', title: 'OrderID' },
+    { key: 'amount', title: 'Amount' },
+    { key: 'status', title: 'Status' },
+  ];
+  categoryTableColumns: INgxTableColumn[] = [
+    { key: '_id', title: '#' },
+    { key: 'name', title: 'Name' },
+  ];
+  customerTableColumns: INgxTableColumn[] = [
+    { key: '_id', title: '#' },
+    { key: 'firstName', title: 'First name' },
+    { key: 'lastName', title: 'Last name' },
+    { key: 'email', title: 'Email' },
+    { key: 'addressID', title: 'addressID' },
+  ];
 
   constructor() {}
 }

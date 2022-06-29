@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/categories" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Categories
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header bg-dark text-white">Add Category</div>
+      <div class="card-body">
+        <form
+          #catForm="ngForm"
+          (ngSubmit)="onSubmit({ value: catForm.value, valid: catForm.valid })"
+        >
+          <div class="mb-3">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              #catName="ngModel"
+              [ngClass]="{
+                'is-invalid': catName.errors && catName.touched
+              }"
+              [(ngModel)]="category.name"
+              minlength="5"
+              required
+            />
+
+            <div
+              [hidden]="!catName.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Category name required
+            </div>
+            <div
+              [hidden]="!catName.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Must be at least 5 characters
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-primary" [disabled]="catForm.invalid">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
